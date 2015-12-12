@@ -35,9 +35,11 @@ class Router extends React.Component {
         this.emitter.emit('didFocus', route.name);
     }
 
-    onBack(navigator) {
-        if (this.state.route.index > 0) {
-            navigator.pop();
+    onBack(navigator, n=1) {
+        if (this.state.route.index > n-1) {
+            const routeStack = navigator.getCurrentRoutes();
+            navigator.resetTo(routeStack[routeStack.length-n]);
+            // navigator.pop();
         }
     }
 
@@ -75,8 +77,8 @@ class Router extends React.Component {
             navigator.resetTo(route);
         }.bind(this);
 
-        var goBackwards = function () {
-            this.onBack(navigator);
+        var goBackwards = function (n=1) {
+            this.onBack(navigator, n);
         }.bind(this);
 
         var goToFirstRoute = function () {
