@@ -37,9 +37,8 @@ class Router extends React.Component {
 
     onBack(navigator, n=1) {
         if (this.state.route.index > n-1) {
-            const routeStack = navigator.getCurrentRoutes();
-            navigator.resetTo(routeStack[routeStack.length-n]);
             // navigator.pop();
+            navigator._popN(n);
         }
     }
 
