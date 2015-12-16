@@ -6,7 +6,8 @@ var NavBarContent = require('./NavBarContent');
 
 var {
   StyleSheet,
-  View
+  View,
+  Navigator
 } = React;
 
 var NavBarContainer = React.createClass({
@@ -115,14 +116,14 @@ var styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 64
+    height: Navigator.NavigationBar.Styles.General.TotalNavHeight
   },
   navbarContainerHidden: {
     position: 'absolute',
-    top: -64,
+    top: -Navigator.NavigationBar.Styles.General.TotalNavHeight,
     left: 0,
     right: 0,
-    height: 64
+    height: Navigator.NavigationBar.Styles.General.TotalNavHeight
   }
 });
 
